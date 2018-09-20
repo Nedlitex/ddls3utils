@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name = 'ddls3utils',
     packages = ['ddls3utils'],
-    version = '0.0.1',
+    version = '0.0.2',
     description = 'S3 utils',
     author = 'nedlitex',
     author_email = 'nedlitex0053@gmail.com',

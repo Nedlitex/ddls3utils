@@ -1,4 +1,5 @@
-from distutils.core import setup
+from setuptools import setup
+
 setup(
     name = 'ddls3utils',
     packages = ['ddls3utils'],

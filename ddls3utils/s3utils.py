@@ -190,3 +190,33 @@ class S3Client:
 
         for file in files:
             self.s3_download_file(bucket, file, folder_full_path)
+
+    '''
+    @description
+        Delete all files from the given bucket starting at the given folder that
+        match the given key.
+
+    @arguments
+        bucket : <str> Supplies the bucket name.
+
+        s3_folder : <str> [optional, default=None] Supplies the name of the folder
+            on S3 to start deleting. If set to None, deletion will start at the bucket.
+
+        key : <str> [optional, default=None] Supplies the key to delete. If set to
+            None, all files will be deleted.
+
+    @returns
+        None.
+
+    '''
+
+    def s3_delete_by_key(self, bucket, s3_folder=None, key=None):
+        files, subfolders = self.s3_list_folder(bucket, s3_folder)
+        for file in files:
+            if key is None or key in file:
+                self.client.delete_object(Bucket=bucket, Key=file)
+
+        for subfolder in subfolder:
+            self.s3_delete_by_key(bucket, subfolder, key)
+
+        return

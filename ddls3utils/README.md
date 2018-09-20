@@ -126,3 +126,26 @@ s3_download_folder(self,
 
     @returns
         None.
+
+---
+
+s3_delete_by_key(self,
+                 bucket,
+                 s3_folder=None,
+                 key=None)
+
+    @description
+        Delete all files from the given bucket starting at the given folder that
+        match the given key.
+
+    @arguments
+        bucket : <str> Supplies the bucket name.
+
+        s3_folder : <str> [optional, default=None] Supplies the name of the folder
+            on S3 to start deleting. If set to None, deletion will start at the bucket.
+
+        key : <str> [optional, default=None] Supplies the key to delete. If set to
+            None, all files will be deleted.
+
+    @returns
+        None.

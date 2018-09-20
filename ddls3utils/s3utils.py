@@ -216,7 +216,7 @@ class S3Client:
             if key is None or key in file:
                 self.client.delete_object(Bucket=bucket, Key=file)
 
-        for subfolder in subfolder:
+        for subfolder in subfolders:
             self.s3_delete_by_key(bucket, subfolder, key)
 
         return

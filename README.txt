@@ -30,10 +30,10 @@ __init__(self,
 ---
 
 s3_list_folder(self,
-			   bucket,
-			   s3_folder=None)
+               bucket,
+               s3_folder=None)
 
-	@description
+    @description
         Lists all files and sub-folders of the given folder.
 
     @arguments
@@ -49,11 +49,11 @@ s3_list_folder(self,
 ---
 
 s3_upload_file(self,
-			   bucket,
-			   local_file_location,
-			   s3_folder=None)
+               bucket,
+               local_file_location,
+               s3_folder=None)
 
-	@description
+    @description
         Upload a file to the given folder under the given S3 bucket.
 
     @arguments
@@ -70,11 +70,11 @@ s3_upload_file(self,
 ---
 
 s3_upload_folder(self,
-				 bucket,
-				 s3_base_folder,
-				 local_folder_location)
+                 bucket,
+                 s3_base_folder,
+                 local_folder_location)
 
-	@description
+    @description
         Upload a folder to the given folder under the given S3 bucket.
 
     @arguments
@@ -90,11 +90,11 @@ s3_upload_folder(self,
 ---
 
 s3_download_file(self,
-				 bucket,
-				 s3_file_name,
-				 download_to_folder_location)
+                 bucket,
+                 s3_file_name,
+                 download_to_folder_location)
 
-	@description
+    @description
         Download the file from S3 to the given location.
 
     @arguments
@@ -110,11 +110,11 @@ s3_download_file(self,
 ---
 
 s3_download_folder(self,
-				   bucket,
-				   s3_folder,
-				   download_to_folder_location)
+                   bucket,
+                   s3_folder,
+                   download_to_folder_location)
 
-	@description
+    @description
         Download the files in the given folder from S3 to the given location.
 
     @arguments

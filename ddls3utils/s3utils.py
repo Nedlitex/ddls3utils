@@ -131,7 +131,7 @@ class S3Client:
             if isfile(current_file_location):
                 current_folder_split = local_folder_location.split(os.sep)
                 current_folder_s3_path = s3_base_folder + "/".join(current_folder_split) + "/"
-                self.s3_upload_file(bucket, current_folder_s3_path, current_file_location)
+                self.s3_upload_file(bucket, current_file_location, current_folder_s3_path)
             else:
                 self.s3_upload_folder(bucket, s3_base_folder, current_file_location)
         return

@@ -125,15 +125,19 @@ class S3Client:
 
     '''
 
-    def s3_upload_folder(self, bucket, s3_base_folder, local_folder_location):
+    def s3_upload_folder(self, bucket, s3_base_folder, local_folder_location, s3_path=None):
+        if s3_path is None:
+            s3_path = basename(local_folder_location)
+
         for file in listdir(local_folder_location):
             current_file_location = join(local_folder_location, file)
             if isfile(current_file_location):
-                current_folder_split = local_folder_location.split(os.sep)
-                current_folder_s3_path = s3_base_folder + "/".join(current_folder_split) + "/"
+                current_folder_s3_path = s3_base_folder + "/" + s3_path + "/"
                 self.s3_upload_file(bucket, current_file_location, current_folder_s3_path)
             else:
-                self.s3_upload_folder(bucket, s3_base_folder, current_file_location)
+                child_folder_name = basename(current_file_location)
+                s3_path += ("/" + child_folder_name)
+                self.s3_upload_folder(bucket, s3_base_folder, current_file_location, s3_path)
         return
 
     '''

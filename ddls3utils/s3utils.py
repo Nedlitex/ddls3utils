@@ -136,8 +136,7 @@ class S3Client:
                 self.s3_upload_file(bucket, current_file_location, current_folder_s3_path)
             else:
                 child_folder_name = basename(current_file_location)
-                s3_path += ("/" + child_folder_name)
-                self.s3_upload_folder(bucket, s3_base_folder, current_file_location, s3_path)
+                self.s3_upload_folder(bucket, s3_base_folder, current_file_location, s3_path + "/" + child_folder_name)
         return
 
     '''
